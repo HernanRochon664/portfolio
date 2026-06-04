@@ -80,7 +80,7 @@ export function Navbar() {
           )}
           <Button variant="ghost" size="icon" asChild>
             <a
-              href="https://github.com/hernanrochon"
+              href="https://github.com/HernanRochon664"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub profile"

@@ -49,7 +49,7 @@ export const projects: ProjectCaseStudy[] = [
         description: "Choosing SQLite over PostgreSQL eliminated operational overhead without any real cost at this data scale.",
       },
     ],
-    githubUrl: "https://github.com/hernanrochon/biz-sentinel",
+    githubUrl: "https://github.com/HernanRochon664/biz-sentinel",
   },
   {
     slug: "hardware-pulse",
@@ -101,7 +101,7 @@ export const projects: ProjectCaseStudy[] = [
           "A well-designed pipeline with clear contracts and test coverage demonstrates engineering maturity even before model metrics are available.",
       },
     ],
-    githubUrl: "https://github.com/hernanrochon/hardware-pulse",
+    githubUrl: "https://github.com/HernanRochon664/hardware-pulse",
   },
   {
     slug: "music-recommender",
@@ -153,6 +153,6 @@ export const projects: ProjectCaseStudy[] = [
           "Defining relevance, diversity and composite score upfront forced clarity on what the system was actually optimizing for.",
       },
     ],
-    githubUrl: "https://github.com/hernanrochon/music-taste-recommender",
+    githubUrl: "https://github.com/HernanRochon664/music-taste-recommender",
   },
 ];
