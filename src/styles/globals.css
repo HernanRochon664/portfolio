@@ -128,3 +128,16 @@
     @apply font-sans;
   }
 }
+
+@media print {
+  header, footer, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  body::before {
+    display: none !important;
+  }
+}

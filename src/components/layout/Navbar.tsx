@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Projects", href: "/projects" },
   { label: "Lab", href: "/lab" },
   { label: "About", href: "/about" },
-  { label: "Resume", href: "#", external: true },
+  { label: "Resume", href: "/resume" },
 ];
 
 export function Navbar() {
@@ -25,33 +25,21 @@ export function Navbar() {
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <Link
           href="/"
-          className="font-mono text-sm font-bold tracking-tight text-foreground"
+          className="font-mono text-sm font-bold tracking-tight text-emerald-500"
         >
           HR
         </Link>
 
         <nav className="flex items-center gap-6">
-          {navLinks.map((link) =>
-            link.external ? (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ),
-          )}
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="flex items-center gap-1">
