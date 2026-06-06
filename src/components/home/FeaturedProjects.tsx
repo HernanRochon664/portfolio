@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link"
+import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { projects } from "@/data/projects"
 import { GithubIcon } from "@/components/ui/icons"
@@ -32,11 +35,15 @@ export function FeaturedProjects() {
         </div>
 
         <div className="flex flex-col gap-6">
-          {featured.map((project) => {
+          {featured.map((project, index) => {
             const status = statusConfig[project.status]
             return (
-              <div
+              <motion.div
                 key={project.slug}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
                 className="rounded-lg border border-border p-6 md:p-8"
               >
                 <div className="mb-2 flex items-start justify-between gap-4">
@@ -109,7 +116,7 @@ export function FeaturedProjects() {
                     )}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
         </div>
