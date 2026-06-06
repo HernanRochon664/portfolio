@@ -72,7 +72,7 @@ export default function ResumePage() {
         </p>
         <p className="mt-3 font-mono text-xs text-muted-foreground">
           hernan.rochon7@gmail.com · linkedin.com/in/hernan-rochon ·
-          github.com/HernanRochon664
+          github.com/HernanRochon664 · portfolio-five-mu-o76n21qfaq.vercel.app
         </p>
       </header>
 

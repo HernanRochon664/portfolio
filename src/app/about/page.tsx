@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react"
+import { ExternalLink, Mail } from "lucide-react"
 import { GithubIcon, LinkedInIcon } from "@/components/ui/icons"
 
 export default function AboutPage() {
@@ -49,6 +49,15 @@ export default function AboutPage() {
         >
           <Mail className="size-4" />
           <span>Email</span>
+        </a>
+        <a
+          href="https://portfolio-five-mu-o76n21qfaq.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ExternalLink className="size-4" />
+          <span>Portfolio</span>
         </a>
       </div>
     </div>
