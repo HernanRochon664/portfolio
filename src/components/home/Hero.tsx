@@ -48,7 +48,7 @@ export function Hero() {
             <a href="#projects">View Projects</a>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="#">Download Resume</a>
+            <a href="/resume">Download Resume</a>
           </Button>
         </motion.div>
 
