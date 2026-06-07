@@ -143,9 +143,10 @@ body::before {
   header, footer, .no-print {
     display: none !important;
   }
-  body {
+  body, body * {
     background: white !important;
     color: black !important;
+    -webkit-print-color-adjust: exact;
   }
   body::before {
     display: none !important;
