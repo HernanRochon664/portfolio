@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { GithubIcon } from "@/components/ui/icons";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Projects", href: "/projects" },
@@ -17,6 +19,7 @@ const navLinks = [
 export function Navbar() {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
 
   useEffect(() => setMounted(true), []);
 
@@ -35,7 +38,10 @@ export function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className={cn(
+                    "text-sm font-medium transition-colors hover:text-foreground",
+                    pathname === link.href ? "text-foreground" : "text-muted-foreground",
+                  )}
             >
               {link.label}
             </Link>

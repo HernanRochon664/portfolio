@@ -34,7 +34,7 @@ export default function ProjectsPage() {
           return (
             <div
               key={project.slug}
-              className="rounded-lg border border-border p-6 md:p-8"
+              className="rounded-lg border border-border p-6 md:p-8 transition-colors duration-200 hover:border-emerald-500/40"
             >
               <div className="mb-2 flex items-start justify-between gap-4">
                 <h2 className="text-xl font-bold">{project.title}</h2>
