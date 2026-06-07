@@ -3,7 +3,7 @@ import { GithubIcon, LinkedInIcon } from "@/components/ui/icons"
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16">
+    <div className="mx-auto max-w-2xl px-4 py-16 flex flex-col">
       <h1 className="text-3xl font-bold tracking-tight">About</h1>
 
       <div className="mt-8 flex flex-col gap-4 text-foreground/90 leading-relaxed">
