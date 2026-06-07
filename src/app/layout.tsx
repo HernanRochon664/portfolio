@@ -31,9 +31,11 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <div className="flex flex-col flex-1 min-h-screen">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
