@@ -1,7 +1,7 @@
 const skillGroups = [
-  { category: "Machine Learning", skills: ["Python", "Scikit-learn", "LightGBM", "PyTorch", "SHAP"] },
+  { category: "Machine Learning", skills: ["Python", "Scikit-learn", "LightGBM", "Keras", "SHAP"] },
   { category: "MLOps & Pipelines", skills: ["Kedro", "MLflow", "Prefect", "Docker", "FastAPI"] },
-  { category: "Data Engineering", skills: ["pandas", "SQLite", "PostgreSQL", "BeautifulSoup"] },
+  { category: "Data Engineering", skills: ["pandas", "SQLite", "PostgreSQL", "BeautifulSoup", "Linux"] },
   { category: "Frontend & Viz", skills: ["Streamlit", "Dash"] },
 ]
 
