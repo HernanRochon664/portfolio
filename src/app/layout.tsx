@@ -29,10 +29,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("h-full", "antialiased", "font-sans", inter.variable, jetbrainsMono.variable)}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Navbar />
-          <main className="flex flex-col flex-1 min-h-0">{children}</main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
