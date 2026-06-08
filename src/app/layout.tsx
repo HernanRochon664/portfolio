@@ -13,10 +13,30 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hernan Rochon — Data Scientist & ML Engineer",
-  description:
-    "Portfolio personal de Hernan Rochon. Data Scientist y ML Engineer especializado en machine learning, deep learning y arquitecturas de datos escalables.",
-};
+  title: {
+    default: 'Hernan Rochon — Data Scientist & ML Engineer',
+    template: '%s — Hernan Rochon',
+  },
+  description: 'Data Scientist and ML Engineer building production ML systems with a focus on interpretability and measurable impact.',
+  metadataBase: new URL('https://portfolio-five-mu-o76n21qfaq.vercel.app'),
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://portfolio-five-mu-o76n21qfaq.vercel.app',
+    siteName: 'Hernan Rochon',
+    title: 'Hernan Rochon — Data Scientist & ML Engineer',
+    description: 'Data Scientist and ML Engineer building production ML systems with a focus on interpretability and measurable impact.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hernan Rochon — Data Scientist & ML Engineer',
+    description: 'Data Scientist and ML Engineer building production ML systems with a focus on interpretability and measurable impact.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 export default function RootLayout({
   children,
