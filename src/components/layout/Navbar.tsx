@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Sun, Moon } from "lucide-react";
@@ -17,11 +17,13 @@ const navLinks = [
 ];
 
 export function Navbar() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
   const { theme, setTheme } = useTheme();
   const pathname = usePathname();
-
-  useEffect(() => setMounted(true), []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-sm">
