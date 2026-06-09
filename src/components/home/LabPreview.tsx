@@ -19,7 +19,7 @@ export function LabPreview() {
           {previewItems.map((item) => (
             <div
               key={item.slug}
-              className="relative rounded-lg border border-border p-4"
+              className="relative rounded-lg border border-border p-4 transition-colors duration-200 hover:border-emerald-500/40"
             >
               <div className="flex items-start justify-between gap-2">
                 <h3 className="text-sm font-medium">{item.title}</h3>

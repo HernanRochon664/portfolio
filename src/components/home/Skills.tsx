@@ -20,7 +20,7 @@ export function Skills() {
           {skillGroups.map((group) => (
             <div
               key={group.category}
-              className="rounded-lg border border-border p-6"
+              className="rounded-lg border border-border p-6 transition-colors duration-200 hover:border-emerald-500/40"
             >
               <p className="mb-3 text-xs font-medium uppercase tracking-widest text-muted-foreground">
                 {group.category}
