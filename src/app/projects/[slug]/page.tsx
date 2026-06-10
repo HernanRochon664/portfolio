@@ -100,18 +100,32 @@ export default async function ProjectPage({
           ))}
         </div>
 
-        {project.githubUrl && (
-          <div className="mt-6">
-            <Button asChild variant="outline">
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GithubIcon className="size-4" />
-                View on GitHub
-              </a>
-            </Button>
+        {(project.githubUrl || project.demoUrl) && (
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            {project.githubUrl && (
+              <Button asChild variant="outline">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GithubIcon className="size-4" />
+                  View on GitHub
+                </a>
+              </Button>
+            )}
+            {project.demoUrl && (
+              <Button asChild variant="outline">
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Free tier — may have cold start"
+                >
+                  ↗ Live demo
+                </a>
+              </Button>
+            )}
           </div>
         )}
       </header>

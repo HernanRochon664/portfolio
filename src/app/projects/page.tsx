@@ -93,6 +93,17 @@ export default function ProjectsPage() {
                   >
                     View case study →
                   </Link>
+                  {project.demoUrl && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                      title="Free tier — may have cold start"
+                    >
+                      ↗ Live demo
+                    </a>
+                  )}
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}

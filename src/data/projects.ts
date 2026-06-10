@@ -12,7 +12,7 @@ export const projects: ProjectCaseStudy[] = [
     tags: ["mlops", "anomaly-detection", "churn-prediction", "privacy"],
     coverImage: "/images/projects/bizsentinel.jpg",
     architectureImage: "",
-    demoUrl: "",
+    demoUrl: "https://biz-sentinel-dashboard.onrender.com",
     articleUrl: "",
     technologies: ["Python", "LightGBM", "Scikit-learn", "Kedro", "MLflow", "FastAPI", "Dash", "Docker"],
     metrics: [
@@ -62,7 +62,7 @@ export const projects: ProjectCaseStudy[] = [
     tags: ["web-scraping", "entity-resolution", "price-intelligence", "time-series"],
     coverImage: "/images/projects/hardware-pulse.jpg",
     architectureImage: "",
-    demoUrl: "",
+    demoUrl: "https://hardware-pulse.streamlit.app/",
     articleUrl: "",
     technologies: ["Python", "BeautifulSoup", "pandas", "SQLite", "RapidFuzz", "Scikit-learn", "Streamlit"],
     metrics: [
@@ -114,7 +114,7 @@ export const projects: ProjectCaseStudy[] = [
     tags: ["recommendation-systems", "embeddings", "nlp", "business-metrics"],
     coverImage: "/images/projects/music-recommender.jpg",
     architectureImage: "",
-    demoUrl: "",
+    demoUrl: "https://music-taste-recommender.streamlit.app/",
     articleUrl: "",
     technologies: ["Python", "Sentence-Transformers", "Scikit-learn", "Streamlit", "Hugging Face", "pandas"],
     metrics: [
