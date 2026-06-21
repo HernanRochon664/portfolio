@@ -6,7 +6,7 @@ export const labItems: LabItem[] = [
     title: "Sports Image Classification",
     description: "CNN-based image classifier trained to recognize sports categories from photos.",
     category: "deep-learning",
-    tags: ["CNN", "Computer Vision", "PyTorch"],
+    tags: ["CNN", "Computer Vision", "Keras"],
     date: "2024",
     status: "completed",
     githubUrl: "https://github.com/HernanRochon664/Proyectos-ML/tree/main/sports-img-classification",

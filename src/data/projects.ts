@@ -5,7 +5,7 @@ export const projects: ProjectCaseStudy[] = [
     slug: "bizsentinel",
     title: "BizSentinel",
     subtitle: "End-to-end ML platform for e-commerce customer intelligence",
-    description: "End-to-end ML platform that detects anomalies, segments customers and predicts churn on real e-commerce data.",
+    description: "Spot high-risk customers, anomalous transactions and churn before revenue leaks — 97,896 SMB e-commerce customers scored end-to-end.",
     year: "2025",
     status: "completed",
     featured: true,
@@ -26,7 +26,7 @@ export const projects: ProjectCaseStudy[] = [
     solution:
       "Three interconnected ML modules: Isolation Forest for anomaly detection, K-Means for customer segmentation, and LightGBM for churn scoring — each module feeding the next.",
     impact:
-      "Processed 97,896 customers through a full ML pipeline with privacy-preserving pseudonymization and differential privacy on the churn model.",
+      "Gives SMB e-commerce operators early warning on churn, fraud-like behavior and customer segments so they can intervene before revenue is lost — across 97,896 customers, with privacy-preserving pseudonymization and differential privacy on the churn model.",
     challenges: [
       {
         title: "Module dependency chain",
@@ -55,7 +55,7 @@ export const projects: ProjectCaseStudy[] = [
     slug: "hardware-pulse",
     title: "Hardware Pulse",
     subtitle: "PC hardware price intelligence for the Uruguayan market",
-    description: "Price intelligence system that tracks and compares PC components across local Uruguayan retailers to detect buying opportunities.",
+    description: "Helps Uruguayan PC buyers time their purchase and find the cheapest retailer across GPUs, CPUs, SSDs and RAM.",
     year: "2025",
     status: "in-progress",
     featured: true,
@@ -76,7 +76,7 @@ export const projects: ProjectCaseStudy[] = [
     solution:
       "Automated scraping pipeline with three-tier entity resolution (exact match → regex → fuzzy), normalized price snapshots, and weekly feature engineering for price forecasting.",
     impact:
-      "Covers GPUs, CPUs, SSDs and RAM across 3+ local retailers with a reproducible pipeline, Pydantic data contracts and SQLite WAL mode for concurrent access.",
+      "Helps Uruguayan PC buyers time their purchase and find the cheapest retailer across GPUs, CPUs, SSDs and RAM — tracking 3+ local retailers with a reproducible pipeline, Pydantic data contracts and SQLite WAL mode for concurrent access.",
     challenges: [
       {
         title: "Entity resolution across inconsistent titles",
@@ -107,7 +107,7 @@ export const projects: ProjectCaseStudy[] = [
     slug: "music-recommender",
     title: "Music Taste Recommender",
     subtitle: "Business-driven hybrid recommendation engine",
-    description: "Hybrid recommendation engine that balances relevance and diversity to reduce churn and increase catalog discovery on streaming platforms.",
+    description: "Helps streaming listeners discover more of the catalog without losing relevance — pushing genre diversity from 19% to 70% at a 0.89 relevance score, so users explore instead of churning out.",
     year: "2025",
     status: "completed",
     featured: true,
@@ -128,7 +128,7 @@ export const projects: ProjectCaseStudy[] = [
     solution:
       "Hybrid 402-dimensional embeddings combining audio features and genre semantics, with a configurable re-ranking stage that balances relevance and diversity according to business strategy.",
     impact:
-      "Increased genre diversity from 19% to 70% across recommendations while maintaining relevance score at 0.89, evaluated across 500 simulated users and 5 business strategies.",
+      "Breaks the filter bubble by lifting genre diversity from 19% to 70% while keeping relevance at 0.89, so streaming users explore more of the catalog instead of churning out — evaluated across 500 simulated users and 5 configurable business strategies.",
     challenges: [
       {
         title: "Dimensionality imbalance between audio and genre embeddings",

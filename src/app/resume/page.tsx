@@ -8,7 +8,7 @@ const projects = [
     title: "BizSentinel",
     subtitle: "End-to-end ML platform for e-commerce customer intelligence",
     bullets: [
-      "Processed 97,896 customers through anomaly detection, segmentation and churn prediction pipeline",
+      "Detects at-risk customers, anomalous transactions and churn signals so SMBs can act before losing revenue — 97,896 customers scored",
       "Implemented privacy-preserving ML with HMAC pseudonymization and differential privacy (ε≤5)",
       "127 unit tests, 82% coverage",
     ],
@@ -18,8 +18,8 @@ const projects = [
     title: "Hardware Pulse",
     subtitle: "PC hardware price intelligence system",
     bullets: [
-      "Built scraping pipeline covering 3+ Uruguayan retailers across 4 component categories",
-      "Three-tier entity resolution (exact → regex → fuzzy) to canonical product SKUs",
+      "Helps Uruguayan PC buyers time their purchase and find the cheapest retailer across GPUs, CPUs, SSDs and RAM",
+      "Three-tier entity resolution (exact → regex → fuzzy) reconciles inconsistent retailer listings into canonical SKUs, so comparisons are reliable",
     ],
     stack: "Python, BeautifulSoup, SQLite, RapidFuzz, Scikit-learn, Streamlit",
   },
@@ -27,7 +27,7 @@ const projects = [
     title: "Music Taste Recommender",
     subtitle: "Business-driven hybrid recommendation engine",
     bullets: [
-      "Increased genre diversity from 19% to 70% while maintaining relevance score of 0.89",
+      "Boosts music discovery without sacrificing relevance — raising genre diversity from 19% to 70% at a 0.89 relevance score, so listeners explore more of the catalog without churning out",
       "Evaluated across 500 simulated users and 5 configurable business strategies",
     ],
     stack: "Python, Sentence-Transformers, Scikit-learn, Streamlit, Hugging Face",
@@ -37,7 +37,7 @@ const projects = [
 const skills = [
   {
     label: "Machine Learning",
-    values: "Python, Scikit-learn, LightGBM, PyTorch, SHAP",
+    values: "Python, Scikit-learn, LightGBM, Keras, SHAP",
   },
   {
     label: "MLOps & Pipelines",
@@ -82,8 +82,8 @@ export default function ResumePage() {
           Self-taught Data Scientist and ML Engineer with hands-on experience
           building end-to-end machine learning systems. Focused on
           production-ready pipelines, model interpretability, and measurable
-          impact. Looking for a first professional role as a Data Scientist or
-          ML Engineer.
+          impact. Looking for a first professional role as a ML Engineer or Data
+          Scientist.
         </p>
       </section>
 

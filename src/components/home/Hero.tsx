@@ -25,7 +25,7 @@ function useTypewriter(text: string, speed: number = 50) {
   return displayed
 }
 
-const techTags = ["Python", "PyTorch", "scikit-learn", "MLflow"]
+const techTags = ["Python", "Kedro", "scikit-learn", "MLflow"]
 
 export function Hero() {
   const headline = "Data Scientist & ML Engineer"
