@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Hernan Rochon — Data Scientist & ML Engineer'
+export const alt = 'Hernan Rochon — ML Engineer & Data Scientist'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -27,7 +27,7 @@ export default function OGImage() {
           Hernan Rochon
         </div>
         <div style={{ color: '#a1a1aa', fontSize: '32px', marginBottom: '60px' }}>
-          Data Scientist &amp; ML Engineer
+          ML Engineer &amp; Data Scientist
         </div>
         <div style={{ color: '#52525b', fontSize: '20px', fontFamily: 'monospace' }}>
           portfolio-five-mu-o76n21qfaq.vercel.app

@@ -55,7 +55,7 @@ const skills = [
 
 export const metadata = {
   title: "Resume — Hernan Rochon",
-  description: "Resume of Hernan Rochon, Data Scientist & ML Engineer.",
+  description: "Resume of Hernan Rochon, ML Engineer & Data Scientist.",
 }
 
 export default function ResumePage() {
@@ -68,7 +68,7 @@ export default function ResumePage() {
       <header className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight">Hernan Rochon</h1>
         <p className="mt-1 text-muted-foreground">
-          Data Scientist & ML Engineer
+          ML Engineer & Data Scientist
         </p>
         <p className="mt-3 font-mono text-xs text-muted-foreground">
           hernan.rochon7@gmail.com · linkedin.com/in/hernan-rochon ·
@@ -79,7 +79,7 @@ export default function ResumePage() {
       <section className="mb-8">
         <h2 className={sectionHeading}>Summary</h2>
         <p className="text-sm leading-relaxed text-foreground/90">
-          Self-taught Data Scientist and ML Engineer with hands-on experience
+          Self-taught ML Engineer and Data Scientist with hands-on experience
           building end-to-end machine learning systems. Focused on
           production-ready pipelines, model interpretability, and measurable
           impact. Looking for a first professional role as a ML Engineer or Data
