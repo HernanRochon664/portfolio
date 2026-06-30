@@ -2,6 +2,7 @@ import { ExternalLink, Mail } from "lucide-react"
 import { GithubIcon, LinkedInIcon } from "@/components/ui/icons"
 
 const practices = [
+  { title: "AI-assisted development", description: "OpenCode as implementation engine, guided by detailed specs and architectural decisions I define and review" },
   { title: "Testing", description: "pytest with coverage reporting — 127 tests, 82% coverage in BizSentinel" },
   { title: "Experiment tracking", description: "MLflow for model registry, metrics and artifact versioning" },
   { title: "Containerization", description: "Docker and docker-compose for reproducible environments" },
