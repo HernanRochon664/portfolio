@@ -96,13 +96,13 @@ export default function AboutPage() {
           <span>Email</span>
         </a>
         <a
-          href="https://portfolio-five-mu-o76n21qfaq.vercel.app"
+          href="https://hernanrochon.com"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ExternalLink className="size-4" />
-          <span>Portfolio</span>
+          <span>hernanrochon.com</span>
         </a>
       </div>
     </div>

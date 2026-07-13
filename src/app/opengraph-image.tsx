@@ -30,7 +30,7 @@ export default function OGImage() {
           ML Engineer &amp; Data Scientist
         </div>
         <div style={{ color: '#52525b', fontSize: '20px', fontFamily: 'monospace' }}>
-          portfolio-five-mu-o76n21qfaq.vercel.app
+          hernanrochon.com
         </div>
       </div>
     ),
