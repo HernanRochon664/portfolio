@@ -8,7 +8,7 @@ const projects = [
     title: "BizSentinel",
     subtitle: "End-to-end ML platform for e-commerce customer intelligence",
     bullets: [
-      "Detects at-risk customers, anomalous transactions and churn signals so SMBs can act before losing revenue — 97,896 customers scored",
+      "Detects at-risk customers, anomalous transactions and churn signals so SMBs can act before losing revenue - 97,896 customers scored",
       "Implemented privacy-preserving ML with HMAC pseudonymization and differential privacy (ε≤5)",
       "127 unit tests, 82% coverage",
     ],
@@ -27,7 +27,7 @@ const projects = [
     title: "Music Taste Recommender",
     subtitle: "Business-driven hybrid recommendation engine",
     bullets: [
-      "Boosts music discovery without sacrificing relevance — raising genre diversity from 19% to 70% at a 0.89 relevance score, so listeners explore more of the catalog without churning out",
+      "Boosts music discovery without sacrificing relevance - raising genre diversity from 19% to 70% at a 0.89 relevance score, so listeners explore more of the catalog without churning out",
       "Evaluated across 500 simulated users and 5 configurable business strategies",
     ],
     stack: "Python, Sentence-Transformers, Scikit-learn, Streamlit, Hugging Face",
@@ -54,7 +54,7 @@ const skills = [
 ]
 
 export const metadata = {
-  title: "Resume — Hernan Rochon",
+  title: "Resume - Hernan Rochon",
   description: "Resume of Hernan Rochon, ML Engineer & Data Scientist.",
 }
 
@@ -96,7 +96,7 @@ export default function ResumePage() {
                 <span className="font-bold">{project.title}</span>
                 <span className="text-muted-foreground">
                   {" "}
-                  — {project.subtitle}
+                  - {project.subtitle}
                 </span>
               </p>
               <ul className="mt-1.5 ml-5 list-disc space-y-1 text-sm text-foreground/90 marker:text-muted-foreground">
@@ -128,7 +128,7 @@ export default function ResumePage() {
         <h2 className={sectionHeading}>Certifications</h2>
         <ul className="ml-5 list-disc space-y-1 text-sm text-foreground/90 marker:text-muted-foreground">
           <li>
-            Microsoft AI & ML Engineering Professional Certificate — Coursera
+            Microsoft AI & ML Engineering Professional Certificate - Coursera
             (5 courses)
           </li>
           <li>IBM AI Fundamentals</li>
@@ -142,7 +142,7 @@ export default function ResumePage() {
       <section className="mb-8">
         <h2 className={sectionHeading}>Education</h2>
         <p className="text-sm text-foreground/90">
-          Secondary School Diploma, Scientific & Engineering track — 2025
+          Secondary School Diploma, Scientific & Engineering track - 2025
         </p>
       </section>
 
@@ -150,10 +150,10 @@ export default function ResumePage() {
         <h2 className={sectionHeading}>Languages</h2>
         <ul className="flex flex-col gap-1 text-sm text-foreground/90">
           <li>
-            <span className="font-bold">Spanish</span> — Native
+            <span className="font-bold">Spanish</span> - Native
           </li>
           <li>
-            <span className="font-bold">English</span> — B2 Cambridge
+            <span className="font-bold">English</span> - B2 Cambridge
             International Certificate
           </li>
         </ul>

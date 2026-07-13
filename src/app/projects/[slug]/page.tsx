@@ -120,7 +120,7 @@ export default async function ProjectPage({
                   href={project.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title="Free tier — may have cold start"
+                  title="Free tier - may have cold start"
                 >
                   ↗ Live demo
                 </a>

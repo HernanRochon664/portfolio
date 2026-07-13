@@ -12,24 +12,24 @@
 - `pnpm` config in `package.json`: `onlyBuiltDependencies: ["sharp"]`, `overrides: { "fetch-blob": "3.1.3" }`.
 
 ## Scripts (`pnpm …`)
-- `dev` — `next dev` (default port 3000)
-- `build` — `next build`
-- `start` — `next start`
-- `lint` — `eslint` (flat config, `eslint.config.mjs`, extends `eslint-config-next` core-web-vitals + typescript)
+- `dev` - `next dev` (default port 3000)
+- `build` - `next build`
+- `start` - `next start`
+- `lint` - `eslint` (flat config, `eslint.config.mjs`, extends `eslint-config-next` core-web-vitals + typescript)
 - **No `typecheck` script.** Run `pnpm exec tsc --noEmit` to typecheck.
 - **No test framework is configured.** Don't add tests without confirming the runner first.
 
 ## Source Layout
 All source lives under `src/` (per `tsconfig.json` `paths: "@/*": ["./src/*"]`):
-- `src/app/` — App Router routes. `layout.tsx` mounts `Navbar` + `Footer` and wraps everything in `ThemeProvider`.
+- `src/app/` - App Router routes. `layout.tsx` mounts `Navbar` + `Footer` and wraps everything in `ThemeProvider`.
   - Routes: `/`, `/about`, `/contact`, `/lab`, `/projects` (list), `/projects/[slug]` (detail), `/resume` (with co-located `PrintButton.tsx`).
-  - `app/projects/[slug]/page.tsx` uses `generateStaticParams` and `generateMetadata` reading from `src/data/projects.ts` — adding a project there auto-creates a static page.
+  - `app/projects/[slug]/page.tsx` uses `generateStaticParams` and `generateMetadata` reading from `src/data/projects.ts` - adding a project there auto-creates a static page.
   - `app/opengraph-image.tsx`, `app/robots.ts`, `app/sitemap.ts` are present.
 - `src/components/` organized as: `ui/` (shadcn-generated primitives, do not hand-edit patterns), `layout/` (Navbar, Footer, ThemeProvider), `home/` (Hero, FeaturedProjects, Skills, LabPreview).
 - `src/data/projects.ts` (`ProjectCaseStudy[]`) and `src/data/lab.ts` (`LabItem[]`).
-- `src/lib/utils.ts` — exposes the `cn()` helper (clsx + tailwind-merge). The shadcn alias `utils: "@/lib/utils"` resolves here.
-- `src/styles/globals.css` — Tailwind v4 entry, imported by `layout.tsx`. **Not** `app/globals.css`.
-- `src/types/index.ts` — single source of truth for all domain types (`ProjectBase`, `ProjectCaseStudy`, `LabItem`, `ProjectStatus`, `Metric`, `ProjectInsight`).
+- `src/lib/utils.ts` - exposes the `cn()` helper (clsx + tailwind-merge). The shadcn alias `utils: "@/lib/utils"` resolves here.
+- `src/styles/globals.css` - Tailwind v4 entry, imported by `layout.tsx`. **Not** `app/globals.css`.
+- `src/types/index.ts` - single source of truth for all domain types (`ProjectBase`, `ProjectCaseStudy`, `LabItem`, `ProjectStatus`, `Metric`, `ProjectInsight`).
 
 ## Conventions
 - Import types from `@/types`; never invent new shapes. If a field is missing, extend `src/types/index.ts` first and update the data arrays in lockstep.
@@ -41,7 +41,7 @@ All source lives under `src/` (per `tsconfig.json` `paths: "@/*": ["./src/*"]`):
 
 ## Theme / Hydration
 - `ThemeProvider` (in `src/components/layout/ThemeProvider.tsx`) uses `attribute="class"`, `defaultTheme="dark"`, `enableSystem`, `disableTransitionOnChange`.
-- The `<html>` element in `src/app/layout.tsx` carries `suppressHydrationWarning` — keep it; next-themes flips the class on the client.
+- The `<html>` element in `src/app/layout.tsx` carries `suppressHydrationWarning` - keep it; next-themes flips the class on the client.
 - Client components that read theme state must guard against SSR. Follow the `useSyncExternalStore` pattern used in `src/components/layout/Navbar.tsx`.
 
 ## Before Writing Code
@@ -51,8 +51,8 @@ All source lives under `src/` (per `tsconfig.json` `paths: "@/*": ["./src/*"]`):
 4. Match existing style: shadcn/ui Radix Vega defaults, Tailwind v4 utility classes, no inline styles.
 
 ## Known Gotchas
-- **No `public/` directory currently exists.** Project data references `/images/projects/*.jpg` in `coverImage` and `architectureImage` — those assets are not in the repo. Add the `public/images/projects/` files (or update the data) before the gallery/cover renders correctly.
+- **No `public/` directory currently exists.** Project data references `/images/projects/*.jpg` in `coverImage` and `architectureImage` - those assets are not in the repo. Add the `public/images/projects/` files (or update the data) before the gallery/cover renders correctly.
 - `src/data/projects.ts` entries use empty strings (`""`) for `architectureImage`, `demoUrl`, `articleUrl` when absent. Keep this pattern; downstream code checks for truthy URLs.
 - Tailwind v4 is configured via PostCSS (`postcss.config.mjs`); there is **no** `tailwind.config.*` file. Don't add one.
-- ESLint flat config uses `globalIgnores` to re-include `.next/**`, `out/**`, `build/**`, and `next-env.d.ts` from the default `eslint-config-next` ignores — preserve that override.
+- ESLint flat config uses `globalIgnores` to re-include `.next/**`, `out/**`, `build/**`, and `next-env.d.ts` from the default `eslint-config-next` ignores - preserve that override.
 - Do not commit `tsconfig.tsbuildinfo`, `.next/`, or `next-env.d.ts` (gitignored).

@@ -99,7 +99,7 @@ export default function ProjectsPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                      title="Free tier — may have cold start"
+                      title="Free tier - may have cold start"
                     >
                       ↗ Live demo
                     </a>

@@ -5,7 +5,7 @@ export const projects: ProjectCaseStudy[] = [
     slug: "bizsentinel",
     title: "BizSentinel",
     subtitle: "End-to-end ML platform for e-commerce customer intelligence",
-    description: "Spot high-risk customers, anomalous transactions and churn before revenue leaks — 97,896 SMB e-commerce customers scored end-to-end.",
+    description: "Spot high-risk customers, anomalous transactions and churn before revenue leaks - 97,896 SMB e-commerce customers scored end-to-end.",
     year: "2025",
     status: "completed",
     featured: true,
@@ -24,9 +24,9 @@ export const projects: ProjectCaseStudy[] = [
     problem:
       "Small and medium e-commerce businesses collect transactional data but lack dedicated data science teams to extract actionable insights from it.",
     solution:
-      "Three interconnected ML modules: Isolation Forest for anomaly detection, K-Means for customer segmentation, and LightGBM for churn scoring — each module feeding the next.",
+      "Three interconnected ML modules: Isolation Forest for anomaly detection, K-Means for customer segmentation, and LightGBM for churn scoring - each module feeding the next.",
     impact:
-      "Gives SMB e-commerce operators early warning on churn, fraud-like behavior and customer segments so they can intervene before revenue is lost — across 97,896 customers, with privacy-preserving pseudonymization and differential privacy on the churn model.",
+      "Gives SMB e-commerce operators early warning on churn, fraud-like behavior and customer segments so they can intervene before revenue is lost - across 97,896 customers, with privacy-preserving pseudonymization and differential privacy on the churn model.",
     challenges: [
       {
         title: "Module dependency chain",
@@ -42,7 +42,7 @@ export const projects: ProjectCaseStudy[] = [
       {
         title: "Unsupervised outputs as supervised features",
         description:
-          "Feeding IsolationForest scores and KMeans labels into LightGBM meaningfully improved churn prediction — the pipeline design justified itself in the metrics.",
+          "Feeding IsolationForest scores and KMeans labels into LightGBM meaningfully improved churn prediction - the pipeline design justified itself in the metrics.",
       },
       {
         title: "SQLite is enough",
@@ -72,11 +72,11 @@ export const projects: ProjectCaseStudy[] = [
       { label: "Data contracts", value: "Pydantic" },
     ],
     problem:
-      "PC hardware prices in Uruguay show high dispersion across retailers due to small market size, import costs and exchange rate volatility — with no existing tool to track or compare them.",
+      "PC hardware prices in Uruguay show high dispersion across retailers due to small market size, import costs and exchange rate volatility - with no existing tool to track or compare them.",
     solution:
       "Automated scraping pipeline with three-tier entity resolution (exact match → regex → fuzzy), normalized price snapshots, and weekly feature engineering for price forecasting.",
     impact:
-      "Helps Uruguayan PC buyers time their purchase and find the cheapest retailer across GPUs, CPUs, SSDs and RAM — tracking 3+ local retailers with a reproducible pipeline, Pydantic data contracts and SQLite WAL mode for concurrent access.",
+      "Helps Uruguayan PC buyers time their purchase and find the cheapest retailer across GPUs, CPUs, SSDs and RAM - tracking 3+ local retailers with a reproducible pipeline, Pydantic data contracts and SQLite WAL mode for concurrent access.",
     challenges: [
       {
         title: "Entity resolution across inconsistent titles",
@@ -107,7 +107,7 @@ export const projects: ProjectCaseStudy[] = [
     slug: "music-recommender",
     title: "Music Taste Recommender",
     subtitle: "Business-driven hybrid recommendation engine",
-    description: "Helps streaming listeners discover more of the catalog without losing relevance — pushing genre diversity from 19% to 70% at a 0.89 relevance score, so users explore instead of churning out.",
+    description: "Helps streaming listeners discover more of the catalog without losing relevance - pushing genre diversity from 19% to 70% at a 0.89 relevance score, so users explore instead of churning out.",
     year: "2025",
     status: "completed",
     featured: true,
@@ -128,7 +128,7 @@ export const projects: ProjectCaseStudy[] = [
     solution:
       "Hybrid 402-dimensional embeddings combining audio features and genre semantics, with a configurable re-ranking stage that balances relevance and diversity according to business strategy.",
     impact:
-      "Breaks the filter bubble by lifting genre diversity from 19% to 70% while keeping relevance at 0.89, so streaming users explore more of the catalog instead of churning out — evaluated across 500 simulated users and 5 configurable business strategies.",
+      "Breaks the filter bubble by lifting genre diversity from 19% to 70% while keeping relevance at 0.89, so streaming users explore more of the catalog instead of churning out - evaluated across 500 simulated users and 5 configurable business strategies.",
     challenges: [
       {
         title: "Dimensionality imbalance between audio and genre embeddings",

@@ -14,22 +14,22 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Hernan Rochon — ML Engineer & Data Scientist',
-    template: '%s — Hernan Rochon',
+    default: 'Hernan Rochon - ML Engineer & Data Scientist',
+    template: '%s - Hernan Rochon',
   },
   description: 'ML Engineer and Data Scientist building production ML systems with a focus on interpretability and measurable impact.',
-  metadataBase: new URL('https://portfolio-five-mu-o76n21qfaq.vercel.app'),
+  metadataBase: new URL('https://hernanrochon.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://portfolio-five-mu-o76n21qfaq.vercel.app',
+    url: 'https://hernanrochon.com',
     siteName: 'Hernan Rochon',
-    title: 'Hernan Rochon — ML Engineer & Data Scientist',
+    title: 'Hernan Rochon - ML Engineer & Data Scientist',
     description: 'ML Engineer and Data Scientist building production ML systems with a focus on interpretability and measurable impact.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hernan Rochon — ML Engineer & Data Scientist',
+    title: 'Hernan Rochon - ML Engineer & Data Scientist',
     description: 'ML Engineer and Data Scientist building production ML systems with a focus on interpretability and measurable impact.',
   },
   robots: {
