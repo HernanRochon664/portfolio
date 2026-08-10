@@ -1,7 +1,7 @@
 import { PrintButton } from "./PrintButton"
 
 const sectionHeading =
-  "text-xs uppercase tracking-widest text-muted-foreground border-b border-border pb-1 mb-3"
+  "text-xs uppercase tracking-widest text-muted-foreground border-b border-border pb-1 mb-3 print:mb-2"
 
 const projects = [
   {
@@ -60,25 +60,27 @@ export const metadata = {
 
 export default function ResumePage() {
   return (
-    <div className="mx-auto max-w-2xl px-8 py-12">
-      <div className="mb-8 flex justify-end">
+    <div className="mx-auto max-w-2xl px-8 py-12 print:px-0 print:py-0">
+      <div className="mb-8 flex justify-end print:hidden">
         <PrintButton />
       </div>
 
-      <header className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight">Hernan Rochon</h1>
+      <header className="mb-10 print:mb-4">
+        <h1 className="text-3xl font-bold tracking-tight print:text-2xl">
+          Hernan Rochon
+        </h1>
         <p className="mt-1 text-muted-foreground">
           ML Engineer & Data Scientist
         </p>
-        <p className="mt-3 font-mono text-xs text-muted-foreground">
+        <p className="mt-3 font-mono text-xs text-muted-foreground print:mt-1">
           hernan.rochon7@gmail.com · linkedin.com/in/hernan-rochon ·
           github.com/HernanRochon664 · hernanrochon.com
         </p>
       </header>
 
-      <section className="mb-8">
+      <section className="mb-8 print:mb-3">
         <h2 className={sectionHeading}>Summary</h2>
-        <p className="text-sm leading-relaxed text-foreground/90">
+        <p className="text-sm leading-relaxed text-foreground/90 print:leading-snug">
           Self-taught ML Engineer and Data Scientist with hands-on experience
           building end-to-end machine learning systems. Focused on
           production-ready pipelines, model interpretability, and measurable
@@ -87,9 +89,9 @@ export default function ResumePage() {
         </p>
       </section>
 
-      <section className="mb-8">
+      <section className="mb-8 print:mb-3">
         <h2 className={sectionHeading}>Projects</h2>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 print:gap-2">
           {projects.map((project) => (
             <div key={project.title}>
               <p className="text-sm">
@@ -99,12 +101,12 @@ export default function ResumePage() {
                   - {project.subtitle}
                 </span>
               </p>
-              <ul className="mt-1.5 ml-5 list-disc space-y-1 text-sm text-foreground/90 marker:text-muted-foreground">
+              <ul className="mt-1.5 ml-5 list-disc space-y-1 text-sm text-foreground/90 marker:text-muted-foreground print:mt-1 print:space-y-0.5">
                 {project.bullets.map((bullet) => (
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
-              <p className="mt-1.5 text-xs text-muted-foreground">
+              <p className="mt-1.5 text-xs text-muted-foreground print:mt-1">
                 <span className="font-medium">Stack:</span> {project.stack}
               </p>
             </div>
@@ -112,9 +114,9 @@ export default function ResumePage() {
         </div>
       </section>
 
-      <section className="mb-8">
+      <section className="mb-8 print:mb-3">
         <h2 className={sectionHeading}>Skills</h2>
-        <div className="flex flex-col gap-1.5 text-sm">
+        <div className="flex flex-col gap-1.5 text-sm print:gap-1">
           {skills.map((row) => (
             <p key={row.label}>
               <span className="font-bold">{row.label}:</span>{" "}
@@ -124,9 +126,9 @@ export default function ResumePage() {
         </div>
       </section>
 
-      <section className="mb-8">
+      <section className="mb-8 print:mb-3">
         <h2 className={sectionHeading}>Certifications</h2>
-        <ul className="ml-5 list-disc space-y-1 text-sm text-foreground/90 marker:text-muted-foreground">
+        <ul className="ml-5 list-disc space-y-1 text-sm text-foreground/90 marker:text-muted-foreground print:space-y-0.5">
           <li>
             Microsoft AI & ML Engineering Professional Certificate - Coursera
             (5 courses)
@@ -139,7 +141,7 @@ export default function ResumePage() {
         </ul>
       </section>
 
-      <section className="mb-8">
+      <section className="mb-8 print:mb-3">
         <h2 className={sectionHeading}>Education</h2>
         <p className="text-sm text-foreground/90">
           Secondary School Diploma, Scientific & Engineering track - 2025
@@ -148,7 +150,7 @@ export default function ResumePage() {
 
       <section>
         <h2 className={sectionHeading}>Languages</h2>
-        <ul className="flex flex-col gap-1 text-sm text-foreground/90">
+        <ul className="flex flex-col gap-1 text-sm text-foreground/90 print:gap-0.5">
           <li>
             <span className="font-bold">Spanish</span> - Native
           </li>

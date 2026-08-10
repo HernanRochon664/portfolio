@@ -50,6 +50,19 @@ All source lives under `src/` (per `tsconfig.json` `paths: "@/*": ["./src/*"]`):
 3. Check `src/components/` for an existing component to extend before creating a new one.
 4. Match existing style: shadcn/ui Radix Vega defaults, Tailwind v4 utility classes, no inline styles.
 
+## CV / Resume (`src/app/resume/page.tsx`)
+- The PDF produced by "Download PDF" (`window.print()`) **must fit on a single A4 page**.
+- When editing `src/app/resume/page.tsx` or `src/styles/globals.css` print rules, keep
+  content compact enough that the Languages section lands on page 1.
+- Constraints to preserve single-page output:
+  - `@page { size: A4; margin: 12mm; }` in `src/styles/globals.css`.
+  - Print-only font-size ~11pt, tightened section margins (`mb-5`–`mb-6`), `gap-3` between
+    project cards, `space-y-0.5` on bullets.
+  - Do **not** add new sections, longer bios, or extra projects without compensating by
+    compressing existing content first.
+- After any change to the resume, verify in the browser print preview (Cmd/Ctrl+P) that
+  the preview shows **1 page**, not 2, before considering the change done.
+
 ## Known Gotchas
 - **No `public/` directory currently exists.** Project data references `/images/projects/*.jpg` in `coverImage` and `architectureImage` - those assets are not in the repo. Add the `public/images/projects/` files (or update the data) before the gallery/cover renders correctly.
 - `src/data/projects.ts` entries use empty strings (`""`) for `architectureImage`, `demoUrl`, `articleUrl` when absent. Keep this pattern; downstream code checks for truthy URLs.

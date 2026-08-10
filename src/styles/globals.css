@@ -139,9 +139,18 @@ body::before {
   }
 }
 
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
 @media print {
   header, footer, .no-print {
     display: none !important;
+  }
+  html, body {
+    font-size: 11pt;
+    line-height: 1.4;
   }
   body, body * {
     background: white !important;
