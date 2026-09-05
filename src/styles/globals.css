@@ -145,7 +145,7 @@ body::before {
 }
 
 @media print {
-  header, footer, .no-print {
+  .no-print {
     display: none !important;
   }
   html, body {

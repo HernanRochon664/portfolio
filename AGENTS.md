@@ -56,12 +56,18 @@ All source lives under `src/` (per `tsconfig.json` `paths: "@/*": ["./src/*"]`):
   content compact enough that the Languages section lands on page 1.
 - Constraints to preserve single-page output:
   - `@page { size: A4; margin: 12mm; }` in `src/styles/globals.css`.
-  - Print-only font-size ~11pt, tightened section margins (`mb-5`–`mb-6`), `gap-3` between
-    project cards, `space-y-0.5` on bullets.
+  - Print-only font-size ~11pt, tightened section margins (`print:mb-3` on sections,
+    `print:mb-2` on headings), `print:gap-2` between project cards,
+    `print:space-y-0.5` on bullets.
   - Do **not** add new sections, longer bios, or extra projects without compensating by
     compressing existing content first.
+- Site chrome is hidden in print by the explicit `.no-print` class on `Navbar`'s `<header>`
+  and `Footer`'s `<footer>`. Do **not** hide by tag name (`header, footer`) in the print
+  rules: the resume's own name/role/contact block is a `<header>`, and a tag-name rule
+  silently drops it from the PDF.
 - After any change to the resume, verify in the browser print preview (Cmd/Ctrl+P) that
-  the preview shows **1 page**, not 2, before considering the change done.
+  the preview shows **1 page**, not 2, and that the name and contact line are present,
+  before considering the change done.
 
 ## Known Gotchas
 - **No `public/` directory currently exists.** Project data references `/images/projects/*.jpg` in `coverImage` and `architectureImage` - those assets are not in the repo. Add the `public/images/projects/` files (or update the data) before the gallery/cover renders correctly.
