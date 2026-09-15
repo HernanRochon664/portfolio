@@ -156,6 +156,12 @@ body::before {
     background: white !important;
     color: black !important;
     -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body img {
+    background: transparent !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   body::before {
     display: none !important;
