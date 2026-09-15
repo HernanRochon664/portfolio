@@ -1,7 +1,8 @@
 import { Mail } from "lucide-react";
 import { GithubIcon, LinkedInIcon } from "@/components/ui/icons";
+import type { Dictionary } from "@/lib/dictionaries";
 
-export function Footer() {
+export function Footer({ dict }: { dict: Dictionary["footer"] }) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,7 +17,7 @@ export function Footer() {
             href="https://github.com/HernanRochon664"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
+            aria-label={dict.github}
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             <GithubIcon className="size-4" />
@@ -25,14 +26,14 @@ export function Footer() {
             href="https://www.linkedin.com/in/hernan-rochon/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn"
+            aria-label={dict.linkedin}
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             <LinkedInIcon className="size-4" />
           </a>
           <a
             href="mailto:hernan.rochon7@gmail.com"
-            aria-label="Email"
+            aria-label={dict.email}
             className="text-muted-foreground transition-colors hover:text-foreground"
           >
             <Mail className="size-4" />

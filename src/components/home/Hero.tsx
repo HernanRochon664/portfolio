@@ -1,8 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion } from "motion/react"
+import type { Dictionary } from "@/lib/dictionaries"
+import { localizedPath, type Locale } from "@/lib/i18n"
 
 function useTypewriter(text: string, speed: number = 50) {
   const [displayed, setDisplayed] = useState("")
@@ -27,8 +30,14 @@ function useTypewriter(text: string, speed: number = 50) {
 
 const techTags = ["Python", "Kedro", "scikit-learn", "MLflow"]
 
-export function Hero() {
-  const headline = "ML Engineer & Data Scientist"
+export function Hero({
+  locale,
+  dict,
+}: {
+  locale: Locale
+  dict: Dictionary["home"]["hero"]
+}) {
+  const headline = dict.headline
   const displayed = useTypewriter(headline)
 
   return (
@@ -65,8 +74,7 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <p className="max-w-[600px] leading-relaxed text-muted-foreground">
-            Building production ML systems with a focus on interpretability and
-            measurable impact.
+            {dict.tagline}
           </p>
         </motion.div>
 
@@ -77,10 +85,10 @@ export function Hero() {
           className="flex flex-wrap items-center justify-center gap-4 pt-4"
         >
           <Button asChild size="lg">
-            <a href="#projects">View Projects</a>
+            <a href="#projects">{dict.ctaProjects}</a>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="/resume">Download Resume</a>
+            <Link href={localizedPath("/resume", locale)}>{dict.ctaResume}</Link>
           </Button>
         </motion.div>
 

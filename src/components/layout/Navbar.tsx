@@ -7,84 +7,85 @@ import { Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { GithubIcon } from "@/components/ui/icons";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import type { Dictionary } from "@/lib/dictionaries";
+import { localizedPath, stripLocale, type Locale } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Projects", href: "/projects" },
-  { label: "Lab", href: "/lab" },
-  { label: "About", href: "/about" },
-  { label: "Resume", href: "/resume" },
-];
+  { key: "projects", href: "/projects" },
+  { key: "lab", href: "/lab" },
+  { key: "about", href: "/about" },
+  { key: "resume", href: "/resume" },
+] as const;
 
-export function Navbar() {
+export function Navbar({ locale, dict }: { locale: Locale; dict: Dictionary["nav"] }) {
   const mounted = useSyncExternalStore(
     () => () => {},
     () => true,
     () => false,
   );
   const { theme, setTheme } = useTheme();
-  const pathname = usePathname();
+  const pathname = stripLocale(usePathname());
 
   return (
     <header className="no-print sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-sm">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
-        <Link
-          href="/"
-          className="font-mono text-sm font-bold tracking-tight text-emerald-500"
-        >
-          HR
-        </Link>
+      <div className="mx-auto flex max-w-5xl flex-col gap-1 px-4 py-2 sm:h-14 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:py-0">
+        <div className="flex items-center justify-between sm:contents">
+          <Link
+            href={localizedPath("/", locale)}
+            className="font-mono text-sm font-bold tracking-tight text-emerald-500 sm:order-1"
+          >
+            HR
+          </Link>
 
-        <nav className="flex items-center gap-6">
+          <div className="flex items-center gap-1 sm:order-3">
+            <LanguageSwitcher locale={locale} label={dict.language} />
+            {mounted ? (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label={dict.toggleTheme}
+              >
+                {theme === "dark" ? (
+                  <Sun className="size-4" />
+                ) : (
+                  <Moon className="size-4" />
+                )}
+              </Button>
+            ) : (
+              <Button variant="ghost" size="icon" aria-label={dict.toggleTheme} disabled>
+                <Moon className="size-4" />
+              </Button>
+            )}
+            <Button variant="ghost" size="icon" asChild>
+              <a
+                href="https://github.com/HernanRochon664"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={dict.github}
+              >
+                <GithubIcon className="size-4" />
+              </a>
+            </Button>
+          </div>
+        </div>
+
+        <nav className="flex items-center justify-center gap-5 sm:order-2 sm:gap-6">
           {navLinks.map((link) => (
             <Link
-              key={link.label}
-              href={link.href}
+              key={link.key}
+              href={localizedPath(link.href, locale)}
               className={cn(
-                    "text-sm font-medium transition-colors hover:text-foreground",
-                    pathname === link.href ? "text-foreground" : "text-muted-foreground",
-                  )}
+                "text-sm font-medium transition-colors hover:text-foreground",
+                pathname === link.href ? "text-foreground" : "text-muted-foreground",
+              )}
             >
-              {link.label}
+              {dict[link.key]}
             </Link>
           ))}
         </nav>
-
-        <div className="flex items-center gap-1">
-          {mounted ? (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? (
-                <Sun className="size-4" />
-              ) : (
-                <Moon className="size-4" />
-              )}
-            </Button>
-          ) : (
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Toggle theme"
-              disabled
-            >
-              <Moon className="size-4" />
-            </Button>
-          )}
-          <Button variant="ghost" size="icon" asChild>
-            <a
-              href="https://github.com/HernanRochon664"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-            >
-              <GithubIcon className="size-4" />
-            </a>
-          </Button>
-        </div>
       </div>
     </header>
   );

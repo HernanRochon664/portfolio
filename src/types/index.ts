@@ -1,20 +1,22 @@
+import type { Localized } from "@/lib/i18n";
+
 export type ProjectStatus = "completed" | "in-progress" | "planned";
 
 export interface Metric {
-  label: string;
+  label: Localized;
   value: string;
 }
 
 export interface ProjectInsight {
-  title: string;
-  description: string;
+  title: Localized;
+  description: Localized;
 }
 
 export interface ProjectBase {
   slug: string;
   title: string;
-  subtitle: string;
-  description: string;
+  subtitle: Localized;
+  description: Localized;
   year: string;
   status: ProjectStatus;
   tags: string[];          // Temático: ¿de qué trata? (filtros, SEO)
@@ -23,9 +25,9 @@ export interface ProjectBase {
 }
 
 export interface ProjectCaseStudy extends ProjectBase {
-  problem: string;
-  solution: string;
-  impact: string;
+  problem: Localized;
+  solution: Localized;
+  impact: Localized;
   technologies: string[];  // Stack: ¿con qué fue construido?
   architectureImage?: string;
   gallery?: string[];
@@ -39,8 +41,8 @@ export interface ProjectCaseStudy extends ProjectBase {
 
 export interface LabItem {
   slug: string;
-  title: string;
-  description: string;
+  title: Localized;
+  description: Localized;
   category: "ml" | "deep-learning" | "llm" | "data-engineering" | "visualization";
   tags: string[];
   date: string;

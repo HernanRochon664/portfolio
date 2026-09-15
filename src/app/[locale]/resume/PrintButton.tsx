@@ -3,7 +3,7 @@
 import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export function PrintButton() {
+export function PrintButton({ label }: { label: string }) {
   return (
     <Button
       variant="outline"
@@ -12,7 +12,7 @@ export function PrintButton() {
       className="no-print"
     >
       <Download className="size-4" />
-      Download PDF
+      {label}
     </Button>
   )
 }

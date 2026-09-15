@@ -1,22 +1,30 @@
 import { MetadataRoute } from 'next'
 import { projects } from '@/data/projects'
+import { locales, localizedPath } from '@/lib/i18n'
+import { SITE_URL } from '@/lib/seo'
+
+const routes = [
+  { path: '/', priority: 1 },
+  { path: '/projects', priority: 0.9 },
+  { path: '/lab', priority: 0.7 },
+  { path: '/about', priority: 0.6 },
+  { path: '/resume', priority: 0.6 },
+  ...projects.map((project) => ({ path: `/projects/${project.slug}`, priority: 0.8 })),
+]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://hernanrochon.com'
-
-  const projectRoutes = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }))
-
-  return [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 1 },
-    { url: `${baseUrl}/projects`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.9 },
-    { url: `${baseUrl}/lab`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },
-    { url: `${baseUrl}/resume`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.6 },
-    ...projectRoutes,
-  ]
+  return routes.flatMap(({ path, priority }) =>
+    locales.map((locale) => ({
+      url: `${SITE_URL}${localizedPath(path, locale)}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority,
+      alternates: {
+        languages: {
+          en: `${SITE_URL}${localizedPath(path, 'en')}`,
+          es: `${SITE_URL}${localizedPath(path, 'es')}`,
+        },
+      },
+    })),
+  )
 }

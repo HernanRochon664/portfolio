@@ -18,3 +18,18 @@ Open [http://localhost:3000](http://localhost:3000).
 - **Theme:** next-themes (dark/light)
 - **Fonts:** Inter (sans), JetBrains Mono (mono)
 - **Language:** TypeScript (strict)
+- **i18n:** English (unprefixed URLs) + Spanish (`/es/...`), hand-rolled dictionaries
+
+## Internationalization
+
+The site is bilingual. English lives at the unprefixed URLs (`/`, `/projects`, ...) and
+Spanish under `/es/...`; a proxy rewrite maps the unprefixed paths to the internal
+`/en/...` routes. All copy lives in `src/lib/dictionaries/{en,es}.ts` - `es` is typed as
+`Dictionary`, so a missing translation is a compile error.
+
+## Replacing the CV photo
+
+Overwrite `public/images/profile.jpg` with your own square photo (at least 600x600,
+named exactly `profile.jpg`). No code change is needed. The committed file is a neutral
+placeholder; `public/images/profile.svg` is its vector master and is not referenced by
+the app.
