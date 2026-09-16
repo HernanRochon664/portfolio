@@ -37,17 +37,17 @@ export default async function ResumePage({
         <PrintButton label={dict.download} />
       </div>
 
-      <header className="mb-10 flex items-center gap-5 print:mb-3 print:gap-4">
+      <header className="mb-10 flex items-center gap-5 print:mb-2 print:gap-4">
         <Image
           src="/images/profile.jpg"
           alt={dict.photoAlt}
-          width={240}
-          height={240}
+          width={300}
+          height={300}
           priority
           className={cn(
             "size-24 shrink-0 rounded-full object-cover object-center",
             "ring-2 ring-emerald-500/40 ring-offset-2 ring-offset-background",
-            "print:size-[20mm] print:ring-0 print:ring-offset-0",
+            "print:size-[27mm] print:ring-0 print:ring-offset-0",
             "print:border print:border-neutral-300",
           )}
         />
@@ -66,14 +66,14 @@ export default async function ResumePage({
         </div>
       </header>
 
-      <section className="mb-8 print:mb-3">
+      <section className="mb-8 print:mb-2.5">
         <h2 className={sectionHeading}>{dict.sections.summary}</h2>
         <p className="text-sm leading-relaxed text-foreground/90 print:text-[10.5pt] print:leading-snug">
           {dict.summary}
         </p>
       </section>
 
-      <section className="mb-8 print:mb-3">
+      <section className="mb-8 print:mb-2.5">
         <h2 className={sectionHeading}>{dict.sections.projects}</h2>
         <div className="flex flex-col gap-5 print:gap-2.5">
           {dict.projects.map((project) => (
@@ -98,7 +98,7 @@ export default async function ResumePage({
         </div>
       </section>
 
-      <section className="mb-8 print:mb-3">
+      <section className="mb-8 print:mb-2.5">
         <h2 className={sectionHeading}>{dict.sections.skills}</h2>
         <div className="flex flex-col gap-1.5 text-sm print:gap-1 print:text-[10.5pt]">
           {Object.entries(dict.skills).map(([key, row]) => (
@@ -110,7 +110,7 @@ export default async function ResumePage({
         </div>
       </section>
 
-      <section className="mb-8 print:mb-3">
+      <section className="mb-8 print:mb-2.5">
         <h2 className={sectionHeading}>{dict.sections.certifications}</h2>
         <ul className="ml-5 list-disc space-y-1 text-sm text-foreground/90 marker:text-muted-foreground print:space-y-0.5 print:text-[10.5pt]">
           {dict.certifications.map((certification) => (

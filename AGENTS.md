@@ -108,7 +108,7 @@ All source lives under `src/` (per `tsconfig.json` `paths: "@/*": ["./src/*"]`):
   - The container keeps `max-w-2xl` in print (= 42 x 11pt = 163mm inside a 186mm content
     box). **Do not add `print:max-w-none`** - full-bleed lines are what made it read as a
     dense flyer rather than a CV.
-  - Section rhythm: `print:mb-3` on sections, `print:mb-2` on headings,
+  - Section rhythm: `print:mb-2.5` on sections, `print:mb-2` on headings,
     `print:gap-2.5` between project cards, `print:space-y-0.5` on bullets.
   - Skills print in **one** column (a two-column print grid comes out ragged, because the
     left rows wrap and the right ones do not). Education and Languages do share a
@@ -128,10 +128,16 @@ All source lives under `src/` (per `tsconfig.json` `paths: "@/*": ["./src/*"]`):
   as ~5 pages, which looks exactly like a layout regression and is not one. Assert that the
   CSS the page references returns 200 before trusting any measurement.
 - **Photo.** The CV header is a flex row: photo left, name/role/contact right, `items-center`.
-  The photo is `size-24` on screen and `print:size-[20mm]` - about the same height as the
-  text block beside it, so it costs ~0mm of the one-page budget. Putting it above the name
-  would cost 20mm outright. It uses `next/image` with `priority`: a lazily-loaded image can
-  be omitted from the PDF entirely.
+  The photo is `size-24` on screen and `print:size-[27mm]`. Only the first ~23mm are free:
+  that is the height of the name/role/contact block it sits beside, and `items-center` means
+  the row is as tall as the taller of the two. Every mm beyond that adds a mm to the page, so
+  **27mm is the ceiling** - 30mm was measured and it eats the whole margin buffer (spills at a
+  14mm `@page` margin). Putting the photo above the name instead of beside it would cost its
+  full height outright. It uses `next/image` with `priority`: a lazily-loaded image can be
+  omitted from the PDF entirely.
+  - The `width`/`height` props (300) do not set the rendered size - the classes do. They pick
+    which optimised variant is fetched, and at 27mm the 600px variant is needed to stay sharp
+    (~564dpi); dropping them back to 240 would print the photo at ~226dpi.
   - The print block in `globals.css` has a `body img` rule that must stay **after**
     `body, body *`. `img { ... !important }` has specificity (0,0,1) and loses to
     `body, body *` at (0,0,2); `body img` ties and wins only on source order. Getting this
