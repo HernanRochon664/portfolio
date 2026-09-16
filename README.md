@@ -30,6 +30,9 @@ Spanish under `/es/...`; a proxy rewrite maps the unprefixed paths to the intern
 ## Replacing the CV photo
 
 Overwrite `public/images/profile.jpg` with your own square photo (at least 600x600,
-named exactly `profile.jpg`). No code change is needed. The committed file is a neutral
-placeholder; `public/images/profile.svg` is its vector master and is not referenced by
-the app.
+named exactly `profile.jpg`). No code change is needed.
+
+The photo is displayed as a circle, so leave headroom: the head should fill roughly two
+thirds of the frame and sit centred, otherwise the circular crop clips the hair. If your
+source is framed tighter than that, pad it with the background colour rather than cropping
+in - see the `sharp` recipe in `AGENTS.md`.

@@ -95,21 +95,38 @@ All source lives under `src/` (per `tsconfig.json` `paths: "@/*": ["./src/*"]`):
 
 ## CV / Resume (`src/app/[locale]/resume/page.tsx`)
 - The PDF produced by "Download PDF" (`window.print()`) **must fit on a single A4 page**,
-  **in both locales**. Spanish prose runs ~15-20% longer than English, so `/es/resume` is
-  the worst case - always verify that one.
-- When editing `src/app/[locale]/resume/page.tsx` or `src/styles/globals.css` print rules, keep
-  content compact enough that the Languages section lands on page 1.
+  **in both locales**. **English is the worst case**, not Spanish: the Spanish copy in
+  `dictionaries/es.ts` was written to a character budget and the English was not. Verify
+  `/resume` first, then `/es/resume`.
+- **Set print sizes in `pt`, never rely on the inherited `rem`.** `html, body` is `11pt` in
+  print, so a plain `text-sm` renders at `0.875rem` = **9.6pt** and `text-xs` at 8.25pt.
+  That is what made the CV look shrunken. Body copy carries `print:text-[10.5pt]`, section
+  headings `print:text-[8.5pt]`, the name `print:text-[19pt]`, the role `print:text-[11pt]`,
+  and the contact lines `print:text-[8.5pt]`.
 - Constraints to preserve single-page output:
   - `@page { size: A4; margin: 12mm; }` in `src/styles/globals.css`.
-  - Print-only font-size ~11pt, tightened section margins (`print:mb-3` on sections,
-    `print:mb-2` on headings), `print:gap-2` between project cards,
-    `print:space-y-0.5` on bullets.
-  - `print:max-w-none` on the page container: in print `1rem = 11pt`, so `max-w-2xl` would
-    cap the document at ~163mm inside a 186mm content box. Removing the cap is what buys
-    the headroom the Spanish copy needs - do not put it back.
-  - Skills print in two columns; Education and Languages share a two-column print row.
+  - The container keeps `max-w-2xl` in print (= 42 x 11pt = 163mm inside a 186mm content
+    box). **Do not add `print:max-w-none`** - full-bleed lines are what made it read as a
+    dense flyer rather than a CV.
+  - Section rhythm: `print:mb-3` on sections, `print:mb-2` on headings,
+    `print:gap-2.5` between project cards, `print:space-y-0.5` on bullets.
+  - Skills print in **one** column (a two-column print grid comes out ragged, because the
+    left rows wrap and the right ones do not). Education and Languages do share a
+    two-column print row.
   - Do **not** add new sections, longer bios, or extra projects without compensating by
     compressing existing content first.
+- **How to check the page budget properly.** `/Count` in the PDF only tells you 1 vs 2 pages,
+  which says nothing about how close to the edge you are, and parsing text coordinates out of
+  the content streams is unreliable. Instead **stress-test the margin**: temporarily raise
+  `@page { margin }` in `globals.css`, rebuild, and see at what value it spills to 2 pages.
+  Each extra mm of margin removes 2mm of vertical room. The layout currently survives
+  `margin: 15mm` in both locales, i.e. ~6mm of real headroom at the production 12mm -
+  keep it there. Always restore `12mm` afterwards.
+- **Restart the server after every rebuild before generating a PDF.** `next build` replaces
+  the hashed assets under `.next`, so a server process started against an earlier build
+  starts returning 500 for its own CSS; the page then renders completely unstyled and prints
+  as ~5 pages, which looks exactly like a layout regression and is not one. Assert that the
+  CSS the page references returns 200 before trusting any measurement.
 - **Photo.** The CV header is a flex row: photo left, name/role/contact right, `items-center`.
   The photo is `size-24` on screen and `print:size-[20mm]` - about the same height as the
   text block beside it, so it costs ~0mm of the one-page budget. Putting it above the name
@@ -119,9 +136,18 @@ All source lives under `src/` (per `tsconfig.json` `paths: "@/*": ["./src/*"]`):
     `body, body *`. `img { ... !important }` has specificity (0,0,1) and loses to
     `body, body *` at (0,0,2); `body img` ties and wins only on source order. Getting this
     wrong silently paints a white box over the photo in the PDF.
-  - The image path is `public/images/profile.jpg` and the committed file is a neutral
-    placeholder. The contract with the user is that they overwrite that exact filename with
-    their own photo and nothing in the code changes - **do not rename it or switch formats.**
+  - The image path is `public/images/profile.jpg` - 600x600 JPEG, the real photo. The
+    contract with the user is that they overwrite that exact filename and nothing in the
+    code changes - **do not rename it or switch formats.**
+  - **Framing matters because the crop is circular.** `object-position` is useless here: the
+    image and the box are both square, so `object-cover` never crops and the property has
+    no effect. To recompose, pad the source with `sharp` instead - the current photo was
+    built by extending a tight headshot to a 731px canvas (white on top/sides,
+    `extendWith: "copy"` on the bottom so the shirt continues instead of ending in a hard
+    line) and resizing back to 600. Aim for the head at ~68% of the frame, centred.
+  - `next/image` caches optimised output in `.next/cache/images` keyed by URL, so after
+    replacing the file locally you must `rm -rf .next/cache/images` or you will keep
+    seeing the old photo.
 - Site chrome is hidden in print by the explicit `.no-print` class on `Navbar`'s `<header>`
   and `Footer`'s `<footer>`. Do **not** hide by tag name (`header, footer`) in the print
   rules: the resume's own name/role/contact block is a `<header>`, and a tag-name rule
