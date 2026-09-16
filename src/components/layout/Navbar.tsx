@@ -34,12 +34,12 @@ export function Navbar({ locale, dict }: { locale: Locale; dict: Dictionary["nav
         <div className="flex items-center justify-between sm:contents">
           <Link
             href={localizedPath("/", locale)}
-            className="font-mono text-sm font-bold tracking-tight text-emerald-500 sm:order-1"
+            className="font-mono text-sm font-bold tracking-tight text-emerald-500 sm:order-1 sm:flex-1"
           >
             HR
           </Link>
 
-          <div className="flex items-center gap-1 sm:order-3">
+          <div className="flex items-center gap-1 sm:order-3 sm:flex-1 sm:justify-end">
             <LanguageSwitcher locale={locale} label={dict.language} />
             {mounted ? (
               <Button
